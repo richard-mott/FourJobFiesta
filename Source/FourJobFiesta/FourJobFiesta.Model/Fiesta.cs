@@ -10,14 +10,18 @@ namespace FourJobFiesta.Model
             = new Observable<Rule>(new PrimaryNormalRule());
         private readonly Observable<Rule> _secondaryRule
             = new Observable<Rule>(new SecondaryNormalRule());
-        private readonly Observable<Job> _windCrystal
-            = new Observable<Job>(JobFactory.NullJob);
-        private readonly Observable<Job> _waterCrystal
-            = new Observable<Job>(JobFactory.NullJob);
-        private readonly Observable<Job> _fireCrystal
-            = new Observable<Job>(JobFactory.NullJob);
-        private readonly Observable<Job> _earthCrystal
-            = new Observable<Job>(JobFactory.NullJob);
+        
+        private readonly Observable<Crystal> _wind
+            = new Observable<Crystal>(new Crystal("Wind Crystal", CrystalType.Wind));
+        private readonly Observable<Crystal> _water
+            = new Observable<Crystal>(new Crystal("Water Crystal", CrystalType.Water));
+        private readonly Observable<Crystal> _fire
+            = new Observable<Crystal>(new Crystal("Fire Crystal", CrystalType.Fire));
+        private readonly Observable<Crystal> _earth
+            = new Observable<Crystal>(new Crystal("Earth Crystal", CrystalType.Earth));
+
+        public IEnumerable<Rule> Rules { get; private set; }
+        public List<Job> SelectedJobs { get; private set; }
 
         public Fiesta()
         {
@@ -35,9 +39,6 @@ namespace FourJobFiesta.Model
             SelectedJobs = new List<Job>();
         }
 
-        public IEnumerable<Rule> Rules { get; private set; }
-        public List<Job> SelectedJobs { get; private set; }
-        
         public Rule PrimaryRule
         {
             get { return _primaryRule; }
@@ -50,28 +51,28 @@ namespace FourJobFiesta.Model
             set { _secondaryRule.Value = value; }
         }
 
-        public Job WindCrystal
+        public Crystal Wind
         {
-            get { return _windCrystal; }
-            set { _windCrystal.Value = value; }
+            get { return _wind; }
+            set { _wind.Value = value; }
         }
 
-        public Job WaterCrystal
+        public Crystal Water
         {
-            get { return _waterCrystal; }
-            set { _waterCrystal.Value = value; }
+            get { return _water; }
+            set { _water.Value = value; }
         }
 
-        public Job FireCrystal
+        public Crystal Fire
         {
-            get { return _fireCrystal; }
-            set { _fireCrystal.Value = value; }
+            get { return _fire; }
+            set { _fire.Value = value; }
         }
 
-        public Job EarthCrystal
+        public Crystal Earth
         {
-            get { return _earthCrystal; }
-            set { _earthCrystal.Value = value; }
+            get { return _earth; }
+            set { _earth.Value = value; }
         }
     }
 }

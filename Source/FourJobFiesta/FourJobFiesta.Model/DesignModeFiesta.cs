@@ -4,10 +4,10 @@
     {
         public DesignModeFiesta()
         {
-            WindCrystal = JobFactory.GetJob("Knight");
-            WaterCrystal = JobFactory.GetJob("Red Mage");
-            FireCrystal = JobFactory.GetJob("Ninja");
-            EarthCrystal = JobFactory.GetJob("Dancer");
+            Wind.Job = JobFactory.GetJob("Knight");
+            Water.Job = JobFactory.GetJob("Red Mage");
+            Fire.Job = JobFactory.GetJob("Ninja");
+            Earth.Job = JobFactory.GetJob("Dancer");
         }
     }
 }

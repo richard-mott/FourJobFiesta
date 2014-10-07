@@ -1,4 +1,6 @@
-﻿namespace FourJobFiesta.Model
+﻿using Assisticant.Fields;
+
+namespace FourJobFiesta.Model
 {
     public class Job
     {
@@ -29,7 +31,7 @@
 
         private string GetImagePath(string name)
         {
-            return "job_" + name.ToLower().Replace(" ", "_");
+            return "job_" + name.ToLower().Replace(" ", "_") + ".png";
         }
 
         public override bool Equals(object obj)
@@ -41,12 +43,26 @@
             if (that == null)
                 return false;
 
-            return Equals(Name, that.Name);
+            return Equals(Name, that.Name) 
+                && Equals(CrystalType, that.CrystalType)
+                && Equals(IsTeam750, that.IsTeam750)
+                && Equals(IsClassic, that.IsClassic);
         }
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode();
+            // Overflow is fine, just wrap
+            unchecked
+            {
+                var hash = 17;
+
+                hash = hash * 23 + Name.GetHashCode();
+                hash = hash * 23 + CrystalType.GetHashCode();
+                hash = hash * 23 + IsTeam750.GetHashCode();
+                hash = hash * 23 + IsClassic.GetHashCode();
+
+                return hash;
+            }
         }
     }
 }

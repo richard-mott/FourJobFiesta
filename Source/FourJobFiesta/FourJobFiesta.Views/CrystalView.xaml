@@ -7,10 +7,10 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
     	<DockPanel >
-    		<TextBlock TextWrapping="Wrap" Text="Crystal Name" Foreground="White" FontSize="18.667" DockPanel.Dock="Top" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    		<TextBlock TextWrapping="Wrap" Text="Job Name" Foreground="White" FontSize="18.667" DockPanel.Dock="Bottom" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Name}" Foreground="White" FontSize="18.667" DockPanel.Dock="Top" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding JobName}" Foreground="White" FontSize="18.667" DockPanel.Dock="Bottom" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     		<Grid Background="White" Margin="3">
-    			<Image Source="job_bard.png" Width="240" Height="235" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0"/>
+    			<Image  Source="{Binding ImagePath}" Width="240" Height="235" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
     		</Grid>
             
     	</DockPanel>

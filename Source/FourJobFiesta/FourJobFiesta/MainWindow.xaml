@@ -14,6 +14,6 @@
     	</Grid.ColumnDefinitions>
         <v:RulesView DataContext="{Binding PrimaryRulesViewModel, Source={StaticResource Locator}}" />
         <v:RulesView DataContext="{Binding SecondaryRulesViewModel, Source={StaticResource Locator}}" Grid.Row="1"/>
-        <v:CrystalsView Grid.Column="1" Grid.RowSpan="2"/>
+        <v:CrystalsView DataContext="{Binding CrystalsViewModel, Source={StaticResource Locator}}" Grid.Column="1" Grid.RowSpan="2"/>
     </Grid>
 </Window>

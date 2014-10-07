@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalsViewModel.cs" />
+    <Compile Include="CrystalViewModel.cs" />
     <Compile Include="PrimaryRulesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrimaryRuleViewModel.cs" />

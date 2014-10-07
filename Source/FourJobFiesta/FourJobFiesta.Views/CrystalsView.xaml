@@ -15,9 +15,9 @@
 			<ColumnDefinition/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<local:CrystalView/>
-		<local:CrystalView Grid.Column="1"/>
-		<local:CrystalView Grid.Row="1"/>
-		<local:CrystalView Grid.Column="1" Grid.Row="1"/>
+		<local:CrystalView DataContext="{Binding Wind}"/>
+		<local:CrystalView DataContext="{Binding Water}" Grid.Column="1"/>
+		<local:CrystalView DataContext="{Binding Fire}" Grid.Row="1"/>
+		<local:CrystalView DataContext="{Binding Earth}" Grid.Column="1" Grid.Row="1"/>
 	</Grid>
 </UserControl>

@@ -31,5 +31,14 @@ namespace FourJobFiesta.ViewModels
                     new SecondaryRulesViewModel(_fiesta));
             }
         }
+
+        public object CrystalsViewModel
+        {
+            get
+            {
+                return ViewModel(() =>
+                    new CrystalsViewModel(_fiesta));
+            }
+        }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crystal.cs" />
     <Compile Include="DesignModeFiesta.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Fiesta.cs" />
