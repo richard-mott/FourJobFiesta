@@ -6,14 +6,14 @@
     <Grid Margin="3">
     	<Grid.RowDefinitions>
     		<RowDefinition Height="Auto"/>
-    		<RowDefinition/>
+    		<RowDefinition />
     	</Grid.RowDefinitions>
     	<Grid.ColumnDefinitions>
-    		<ColumnDefinition Width="Auto"/>
-    		<ColumnDefinition/>
+            <ColumnDefinition Width="Auto" />
+    		<ColumnDefinition />
     	</Grid.ColumnDefinitions>
-    	<v:PrimaryRulesView/>
-    	<v:SecondaryRulesView Grid.Row="1"/>
-    	<v:CrystalsView Grid.Column="1" Grid.RowSpan="2"/>
+        <v:RulesView DataContext="{Binding PrimaryRulesViewModel, Source={StaticResource Locator}}" />
+        <v:RulesView DataContext="{Binding SecondaryRulesViewModel, Source={StaticResource Locator}}" Grid.Row="1"/>
+        <v:CrystalsView Grid.Column="1" Grid.RowSpan="2"/>
     </Grid>
 </Window>

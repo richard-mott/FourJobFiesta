@@ -105,6 +105,10 @@
     <Resource Include="Readme_Assisticant_Snippets.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FourJobFiesta.ViewModels\FourJobFiesta.ViewModels.csproj">
+      <Project>{e7b1daee-4431-43c7-8cc0-7bf4752a3ee4}</Project>
+      <Name>FourJobFiesta.ViewModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FourJobFiesta.Views\FourJobFiesta.Views.csproj">
       <Project>{edeae546-3eef-4665-97cf-714537d7899b}</Project>
       <Name>FourJobFiesta.Views</Name>
