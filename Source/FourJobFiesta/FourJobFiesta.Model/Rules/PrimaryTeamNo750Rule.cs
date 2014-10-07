@@ -17,7 +17,10 @@ namespace FourJobFiesta.Model.Rules
 
         public override IEnumerable<Job> Apply(IEnumerable<Job> jobs, CrystalType crystalType, IEnumerable<Job> selectedJobs)
         {
-            return jobs.Where(job => !job.IsTeam750 && !selectedJobs.Contains(job));
+            return jobs.Where(job => 
+                !job.IsTeam750 
+                && (job.CrystalType == crystalType)
+                && !selectedJobs.Contains(job));
         }
     }
 }
