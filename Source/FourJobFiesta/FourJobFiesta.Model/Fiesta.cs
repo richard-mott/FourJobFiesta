@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Assisticant.Fields;
 using FourJobFiesta.Model.Rules;
 
@@ -6,6 +8,8 @@ namespace FourJobFiesta.Model
 {
     public class Fiesta
     {
+        private static readonly Random Random = new Random();
+
         private readonly Observable<Rule> _primaryRule
             = new Observable<Rule>(new PrimaryNormalRule());
         private readonly Observable<Rule> _secondaryRule
@@ -73,6 +77,38 @@ namespace FourJobFiesta.Model
         {
             get { return _earth; }
             set { _earth.Value = value; }
+        }
+
+        public void SelectJob(Crystal crystal)
+        {
+            var validJobs = GetAvailableJobs(crystal);
+            var selectedJob = GetRandomJob(validJobs.ToList());
+
+            if (SelectedJobs.Contains(crystal.Job))
+                SelectedJobs.Remove(crystal.Job);
+
+            crystal.Job = selectedJob;
+            SelectedJobs.Add(selectedJob);
+        }
+
+        private IEnumerable<Job> GetAvailableJobs(Crystal crystal)
+        {
+            var jobs = JobFactory.GetAllJobs();
+
+            jobs = PrimaryRule.Apply(jobs, crystal.CrystalType, SelectedJobs);
+            jobs = SecondaryRule.Apply(jobs, crystal.CrystalType, SelectedJobs);
+
+            return jobs;
+        }
+
+        private Job GetRandomJob(List<Job> jobs)
+        {
+            if (jobs.Count == 0)
+                return JobFactory.NullJob;
+
+            var selectedIndex = Random.Next(jobs.Count);
+
+            return jobs[selectedIndex];
         }
     }
 }

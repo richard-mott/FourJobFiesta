@@ -1,5 +1,4 @@
-﻿using Assisticant;
-using FourJobFiesta.Model;
+﻿using FourJobFiesta.Model;
 
 namespace FourJobFiesta.ViewModels
 {
@@ -14,22 +13,22 @@ namespace FourJobFiesta.ViewModels
 
         public CrystalViewModel Wind
         {
-            get { return new CrystalViewModel(_fiesta.Wind); }
+            get { return new CrystalViewModel(_fiesta, _fiesta.Wind); }
         }
 
         public CrystalViewModel Water
         {
-            get { return new CrystalViewModel(_fiesta.Water); }
+            get { return new CrystalViewModel(_fiesta, _fiesta.Water); }
         }
 
         public CrystalViewModel Fire
         {
-            get { return new CrystalViewModel(_fiesta.Fire); }
+            get { return new CrystalViewModel(_fiesta, _fiesta.Fire); }
         }
 
         public CrystalViewModel Earth
         {
-            get { return new CrystalViewModel(_fiesta.Earth); }
+            get { return new CrystalViewModel(_fiesta, _fiesta.Earth); }
         }
     }
 }

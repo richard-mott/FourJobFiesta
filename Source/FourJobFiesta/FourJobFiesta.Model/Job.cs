@@ -43,26 +43,12 @@ namespace FourJobFiesta.Model
             if (that == null)
                 return false;
 
-            return Equals(Name, that.Name) 
-                && Equals(CrystalType, that.CrystalType)
-                && Equals(IsTeam750, that.IsTeam750)
-                && Equals(IsClassic, that.IsClassic);
+            return Equals(Name, that.Name);
         }
 
         public override int GetHashCode()
         {
-            // Overflow is fine, just wrap
-            unchecked
-            {
-                var hash = 17;
-
-                hash = hash * 23 + Name.GetHashCode();
-                hash = hash * 23 + CrystalType.GetHashCode();
-                hash = hash * 23 + IsTeam750.GetHashCode();
-                hash = hash * 23 + IsClassic.GetHashCode();
-
-                return hash;
-            }
+            return Name.GetHashCode();
         }
     }
 }
