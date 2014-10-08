@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:v="clr-namespace:FourJobFiesta.Views;assembly=FourJobFiesta.Views"
         Title="Four Job Fiesta" Background="Black" SizeToContent="WidthAndHeight"
-        ResizeMode="NoResize" FontFamily="Final Fantasy IV SNES">
+        ResizeMode="NoResize" FontFamily="./#Final Fantasy IV SNES"
+        Icon="./icon.png">
     <Grid Margin="3">
     	<Grid.RowDefinitions>
     		<RowDefinition Height="Auto"/>
@@ -13,6 +14,13 @@
             <ColumnDefinition Width="1*" />
     		<ColumnDefinition Width="Auto" />
     	</Grid.ColumnDefinitions>
+        
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FF3F3BE7" Offset="0.0" />
+                <GradientStop Color="#FF070A57" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
         <v:RulesView DataContext="{Binding PrimaryRulesViewModel, Source={StaticResource Locator}}" Grid.Column="1" />
         <v:RulesView DataContext="{Binding SecondaryRulesViewModel, Source={StaticResource Locator}}" Grid.Column="1" Grid.Row="1"/>
         <v:CrystalsView DataContext="{Binding CrystalsViewModel, Source={StaticResource Locator}}" Grid.RowSpan="2"/>

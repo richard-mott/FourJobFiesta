@@ -21,18 +21,13 @@
 
                         <ContentPresenter Margin="36,0,0,0" Height="Auto"
                                           HorizontalAlignment="Left" 
-                                          VerticalAlignment="Bottom" />
+                                          VerticalAlignment="Bottom">
+                            <ContentPresenter.Effect>
+                                <DropShadowEffect ShadowDepth="3" />
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
 
                     </Grid>
-
-                    <ControlTemplate.Triggers>
-                        <!--<Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="#FF0000A8" />
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Background" Value="#FF000000"/>
-                        </Trigger>-->
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

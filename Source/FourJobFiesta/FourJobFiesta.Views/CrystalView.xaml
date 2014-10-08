@@ -17,7 +17,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid x:Name="Chrome" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Grid x:Name="Chrome" Background="Transparent" SnapsToDevicePixels="true">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -35,7 +35,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="450"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="75" />
@@ -44,20 +44,36 @@
         <DockPanel Grid.Column="1" LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
             <TextBlock DockPanel.Dock="Left" Text="{Binding Name}" 
                    HorizontalAlignment="Left" VerticalAlignment="Center"
-                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, 3, 3, -6" />
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3,3,3,-6">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" />
+                </TextBlock.Effect>
+            </TextBlock>
             <TextBlock Text="{Binding JobName}" 
                    HorizontalAlignment="Right" VerticalAlignment="Center"
-                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, 3, 3, -6" />
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3,3,3,-6">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" />
+                </TextBlock.Effect>
+            </TextBlock>
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <TextBlock DockPanel.Dock="Left" Text="{Binding Character}" 
                    HorizontalAlignment="Left" VerticalAlignment="Center"
-                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, -6, 3, 3" />
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3,-6,3,3">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" />
+                </TextBlock.Effect>
+            </TextBlock>
             <TextBlock Text="{Binding Level, StringFormat=Level {0}}" 
                    HorizontalAlignment="Right" VerticalAlignment="Center"
-                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, -6, 3, 3" />
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3,-6,3,3">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" />
+                </TextBlock.Effect>
+            </TextBlock>
         </DockPanel>
-        <Grid Background="White" Margin="3" Grid.RowSpan="2">
+        <Grid Background="Transparent" Margin="3" Grid.RowSpan="2">
             <Button Command="{Binding SelectJob}">
                 <Image Source="{Binding ImagePath}"
                         Width="Auto" Height="150" 
@@ -65,13 +81,5 @@
                         Margin="0"  />
             </Button>
         </Grid>
-        <!--<DockPanel>
-            
-            <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Foreground="White" FontSize="18.667" DockPanel.Dock="Top" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock TextWrapping="Wrap" Text="{Binding JobName}" Foreground="White" FontSize="18.667" DockPanel.Dock="Bottom" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            
-
-        </DockPanel>-->
-
     </Grid>
 </UserControl>
