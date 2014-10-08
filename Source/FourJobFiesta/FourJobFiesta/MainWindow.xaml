@@ -2,18 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:v="clr-namespace:FourJobFiesta.Views;assembly=FourJobFiesta.Views"
-        Title="Four Job Fiesta" Background="Black" SizeToContent="WidthAndHeight">
+        Title="Four Job Fiesta" Background="Black" SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" FontFamily="Final Fantasy IV SNES">
     <Grid Margin="3">
     	<Grid.RowDefinitions>
     		<RowDefinition Height="Auto"/>
     		<RowDefinition />
     	</Grid.RowDefinitions>
     	<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-    		<ColumnDefinition />
+            <ColumnDefinition Width="1*" />
+    		<ColumnDefinition Width="Auto" />
     	</Grid.ColumnDefinitions>
-        <v:RulesView DataContext="{Binding PrimaryRulesViewModel, Source={StaticResource Locator}}" />
-        <v:RulesView DataContext="{Binding SecondaryRulesViewModel, Source={StaticResource Locator}}" Grid.Row="1"/>
-        <v:CrystalsView DataContext="{Binding CrystalsViewModel, Source={StaticResource Locator}}" Grid.Column="1" Grid.RowSpan="2"/>
+        <v:RulesView DataContext="{Binding PrimaryRulesViewModel, Source={StaticResource Locator}}" Grid.Column="1" />
+        <v:RulesView DataContext="{Binding SecondaryRulesViewModel, Source={StaticResource Locator}}" Grid.Column="1" Grid.Row="1"/>
+        <v:CrystalsView DataContext="{Binding CrystalsViewModel, Source={StaticResource Locator}}" Grid.RowSpan="2"/>
     </Grid>
 </Window>

@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <UserControl.Resources>
-        <Style x:Key="NoChromeButton" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="1"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFFFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -22,7 +22,7 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="#ADADAD"/>
+                                <Setter Property="Foreground" Value="#FFADADAD"/>
                                 <Setter Property="Opacity" TargetName="Chrome" Value="0.5"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -30,22 +30,48 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
     </UserControl.Resources>
     <Grid>
-        <DockPanel >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="1" LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+            <TextBlock DockPanel.Dock="Left" Text="{Binding Name}" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, 3, 3, -6" />
+            <TextBlock Text="{Binding JobName}" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, 3, 3, -6" />
+        </DockPanel>
+        <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <TextBlock DockPanel.Dock="Left" Text="{Binding Character}" 
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, -6, 3, 3" />
+            <TextBlock Text="{Binding Level, StringFormat=Level {0}}" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Foreground="#FFFFFFFF" FontSize="48" Margin="3, -6, 3, 3" />
+        </DockPanel>
+        <Grid Background="White" Margin="3" Grid.RowSpan="2">
+            <Button Command="{Binding SelectJob}">
+                <Image Source="{Binding ImagePath}"
+                        Width="Auto" Height="150" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        Margin="0"  />
+            </Button>
+        </Grid>
+        <!--<DockPanel>
+            
             <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Foreground="White" FontSize="18.667" DockPanel.Dock="Top" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock TextWrapping="Wrap" Text="{Binding JobName}" Foreground="White" FontSize="18.667" DockPanel.Dock="Bottom" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Grid Background="White" Margin="3">
-                <Button Command="{Binding SelectJob}">
-                    <Image  Source="{Binding ImagePath}" 
-                        Width="240" Height="235" 
-                        HorizontalAlignment="Center" VerticalAlignment="Center" 
-                        Margin="0" />
-                </Button>
-            </Grid>
+            
 
-        </DockPanel>
+        </DockPanel>-->
 
     </Grid>
 </UserControl>

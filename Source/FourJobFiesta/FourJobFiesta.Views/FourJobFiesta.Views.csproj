@@ -99,6 +99,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\cursor.png" />
     <Resource Include="job_bard.png" />
   </ItemGroup>
   <ItemGroup>

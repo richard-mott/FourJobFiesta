@@ -16,13 +16,13 @@ namespace FourJobFiesta.Model
             = new Observable<Rule>(new SecondaryNormalRule());
         
         private readonly Observable<Crystal> _wind
-            = new Observable<Crystal>(new Crystal("Wind Crystal", CrystalType.Wind));
+            = new Observable<Crystal>(new Crystal("Wind Crystal", "Bartz", CrystalType.Wind));
         private readonly Observable<Crystal> _water
-            = new Observable<Crystal>(new Crystal("Water Crystal", CrystalType.Water));
+            = new Observable<Crystal>(new Crystal("Water Crystal", "Lenna", CrystalType.Water));
         private readonly Observable<Crystal> _fire
-            = new Observable<Crystal>(new Crystal("Fire Crystal", CrystalType.Fire));
+            = new Observable<Crystal>(new Crystal("Fire Crystal", "Faris", CrystalType.Fire));
         private readonly Observable<Crystal> _earth
-            = new Observable<Crystal>(new Crystal("Earth Crystal", CrystalType.Earth));
+            = new Observable<Crystal>(new Crystal("Earth Crystal", "Galuf", CrystalType.Earth));
 
         public IEnumerable<Rule> Rules { get; private set; }
         public List<Job> SelectedJobs { get; private set; }
@@ -88,6 +88,7 @@ namespace FourJobFiesta.Model
                 SelectedJobs.Remove(crystal.Job);
 
             crystal.Job = selectedJob;
+            crystal.Level++;
             SelectedJobs.Add(selectedJob);
         }
 

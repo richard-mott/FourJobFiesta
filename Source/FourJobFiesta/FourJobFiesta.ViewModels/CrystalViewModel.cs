@@ -21,9 +21,19 @@ namespace FourJobFiesta.ViewModels
             get { return _crystal.Name; }
         }
 
+        public string Character
+        {
+            get { return _crystal.Character; }
+        }
+
         public string JobName
         {
             get { return _crystal.Job.Name; }
+        }
+
+        public int Level
+        {
+            get { return _crystal.Level > 0 ? _crystal.Level : 1; }
         }
 
         public string ImagePath

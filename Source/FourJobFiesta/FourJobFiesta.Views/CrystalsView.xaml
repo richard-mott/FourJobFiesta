@@ -7,17 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition/>
-			<RowDefinition/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
+		<StackPanel>
 		<local:CrystalView DataContext="{Binding Wind}"/>
 		<local:CrystalView DataContext="{Binding Water}" Grid.Column="1"/>
 		<local:CrystalView DataContext="{Binding Fire}" Grid.Row="1"/>
 		<local:CrystalView DataContext="{Binding Earth}" Grid.Column="1" Grid.Row="1"/>
+		</StackPanel>
 	</Grid>
 </UserControl>

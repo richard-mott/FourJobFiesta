@@ -5,7 +5,10 @@ namespace FourJobFiesta.Model
     public class Crystal
     {
         private Observable<string> _name = new Observable<string>("");
+        private Observable<string> _character = new Observable<string>("");
+        private Observable<int> _level = new Observable<int>(0);
         private Observable<CrystalType> _crystalType = new Observable<CrystalType>(CrystalType.None);
+
         private Observable<Job> _job = new Observable<Job>(JobFactory.NullJob);
 
         public CrystalType CrystalType
@@ -20,18 +23,31 @@ namespace FourJobFiesta.Model
             set { _name.Value = value; }
         }
 
+        public string Character
+        {
+            get { return _character; }
+            set { _character.Value = value; }
+        }
+
         public Job Job
         {
             get { return _job; }
             set { _job.Value = value; }
         }
 
+        public int Level
+        {
+            get { return _level; }
+            set { _level.Value = value; }
+        }
+        
         public Crystal() {}
 
-        public Crystal(string name, CrystalType crystalType)
+        public Crystal(string name, string character, CrystalType crystalType)
         {
-            _name.Value = name;
-            _crystalType.Value = crystalType;
+            Name = name;
+            Character = character;
+            CrystalType = crystalType;
         }
 
         public override bool Equals(object obj)

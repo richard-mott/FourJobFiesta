@@ -15,10 +15,11 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <StackPanel>
-            <TextBlock TextWrapping="Wrap" Text="{Binding Title}" Margin="3" Foreground="White" HorizontalAlignment="Center" FontSize="18"/>
+        <Border BorderBrush="#FFFFFFFF" BorderThickness="2" CornerRadius="6" Margin="33,6,6,6">
+        <StackPanel Margin="6,6,21,6">
+            <TextBlock TextWrapping="Wrap" Text="{Binding Title}" Margin="3,-3,3,-3" Foreground="White" HorizontalAlignment="Left" FontSize="48"/>
 
-            <ItemsControl ItemsSource="{Binding Rules}" Width="225">
+            <ItemsControl ItemsSource="{Binding Rules}" Width="Auto">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel />
@@ -26,7 +27,9 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <RadioButton Content="{Binding Name}" IsChecked="{Binding IsSelected}" FontSize="18" >
+                        <RadioButton Content="{Binding Name}" IsChecked="{Binding IsSelected}" 
+                                     FontSize="48" Height="Auto"
+                                     Margin="0,-3,0,-3">
                             <RadioButton.ToolTip>
                                 <TextBlock Text="{Binding Description}" 
                                            Width="300" Height="Auto" 
@@ -36,6 +39,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
